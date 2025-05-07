@@ -8,12 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
+    <header style='background-color:darkblue'>
         <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'blog_list' %}">BLOGS</a></li>
+            <li><a style="color:white" href="{% url 'home' %}">Home</a></li>
+            <li><a style="color:white" href="{% url 'blog_list' %}">BLOGS</a></li>
+            
+            {% if user.is_authenticated  %}
+                <li><a style="color:white" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a style="color:white" href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+                
+            
         </ul>
-        <hr>
+        
     </header>
     <div>
         {%block content%}
