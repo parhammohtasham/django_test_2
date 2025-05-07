@@ -4,5 +4,9 @@
 {% block content %}
     <h2>{{blog_detail.title}}</h2>
     <p>{{blog_detail.body}}</p>
+    <a href="{% url 'blog_update' blog_detail.id %}">Edit</a>
+    <a href="{% url 'blog_delete' blog_detail.id %}">Delete</a>
+    <hr>
+    <a href="{% url 'blog_list' %}">Back To Blog List</a>
 {% endblock content %}
     

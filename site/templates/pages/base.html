@@ -11,12 +11,14 @@
     <header>
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'blog_list' %}">BLOGS</a></li>
         </ul>
         <hr>
     </header>
     <div>
         {%block content%}
         {%endblock%}
+        
     </div>
 </body>
 </html>
