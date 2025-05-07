@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pages',
     'posts',
     'blog',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -128,5 +129,5 @@ STATIC_URL='/static/'
 STATICFILES_DIRS=[str(BASE_DIR.joinpath('static'))]
 
 #accounts redirect
-LOGIN_REDIRECT_URL='home'
-LOGOUT_REDIRECT_URL='home'
+LOGIN_REDIRECT_URL="home"
+LOGOUT_REDIRECT_URL="home"

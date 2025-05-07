@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header style='background-color:darkblue'>
+    <header>
         <ul>
             <li><a style="color:white" href="{% url 'home' %}">Home</a></li>
             <li><a style="color:white" href="{% url 'blog_list' %}">BLOGS</a></li>
@@ -18,9 +18,9 @@
             {% else %}
                 <li><a style="color:white" href="{% url 'login' %}">Login</a></li>
             {% endif %}
-                
+        </ul>        
             
-        </ul>
+        
         
     </header>
     <div>
