@@ -35,3 +35,27 @@ class BlogEditView(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertEqual(no_response.status_code,404)
         self.assertTemplateUsed(response,'blog/detail.html')
+
+    def test_get_absolute_url(self):
+        self.assertEqual(self.blog.get_absolute_url(),'/blogs/1/')
+
+    def test_create_blog(self):
+        response=self.client.post(reverse('blog_new'),{
+            'title':'new post',
+            'body':'new body',
+            'author':self.user.id,
+        })
+        self.assertEqual(response.status_code,302)
+        self.assertEqual(Blog.objects.last().title,'new post')
+        self.assertEqual(Blog.objects.last().body,'new body')
+
+    def test_update_blog(self):
+        response=self.client.post(reverse('blog_update',args='1'),{
+            'title':'updated title',
+            'body':'updated body',
+        })
+        self.assertEqual(response.status_code,302)
+
+    def test_delete_Blog(self):
+        response=self.client.post(reverse('blog_delete',args='1'))
+        self.assertEqual(response.status_code,302)
